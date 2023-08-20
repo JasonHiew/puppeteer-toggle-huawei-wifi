@@ -1,7 +1,7 @@
 import puppeteer, { TimeoutError } from 'puppeteer';
 import { } from 'dotenv/config';
 
-const DEBUG = process.env.DEBUG || false; // Set to true to see the browser in action
+const DEBUG = process.env.DEBUG || false; // Default false for headless Chromium browser. Set to true to see the browser in action
 const ROUTER_ADDRESS = process.env.ROUTER_ADDRESS || 'http://192.168.100.1';
 const ROUTER_USERNAME = process.env.ROUTER_USERNAME || 'admin';
 const ROUTER_PASSWORD = process.env.ROUTER_PASSWORD || ''; // Check the label under the router for the default password
@@ -39,7 +39,7 @@ const chooseDevice = () => {
 const CURRENT_DEVICE_MAC_ADDRESS = chooseDevice();
 
 const chooseDeviceDelay = () => {
-  const veryShortDelay = getRandomDelay(1000, 2000);
+  const veryShortDelay = getRandomDelay(2000, 4000);
   const shortDelay = getRandomDelay(5000, 10000);
   const longDelay = getRandomDelay(20000, 60000);
   const veryLongDelay = getRandomDelay(30000, 120000); // Now this is just ridiculous
@@ -51,6 +51,8 @@ const chooseDeviceDelay = () => {
       return shortDelay;
     case 'long':
       return longDelay;
+    case 'verylong':
+      return veryLongDelay;
     default:
       return shortDelay;
   }
