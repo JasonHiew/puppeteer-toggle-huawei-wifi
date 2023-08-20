@@ -1,3 +1,6 @@
+# Preview
+https://github.com/JasonHiew/puppeteer-toggle-huawei-wifi/assets/24473087/3923d1be-dc6c-4283-80ed-2de10f820e7f
+
 # Readme
 
 ## What is this?
